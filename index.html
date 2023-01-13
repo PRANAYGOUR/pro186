@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Menu Card</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <!-- We import arjs version without NFT but with marker + location based support -->
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+  <!-- SweetAlert -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <!-- Local StyleSheet -->
+  <link href="./style.css" rel="stylesheet" />
+
+  <!--JS Files-->
+  
+
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+  
+  <a-scene vr-mode-ui="enabled: false"
+    embedded
+    arjs="sourceType: webcam; 
+    sourceWidth:1280; sourceHeight:960; 
+    displayWidth: 1280; displayHeight: 960; 
+    debugUIEnabled: false;"
+    gesture-detector create-buttons>
+    <b>show your camera in the marker</b>
+    <!-- Camera -->
+    <a-entity camera></a-entity>
+    <a-assets>
+      <img id="my-image" src="assetes/Barbedwire1.jpeg">
+      <img id="detail-wire1" src="assetes/barbedwiredetails.png">     
+    </a-assets>
+    <!--Pattern Marker-->
+    <a-marker id="wire-marker" type="pattern" url="markers/wire1/pattern-wire1.patt" cursor="rayOrigin: mouse"
+      markerhandler>
+      <!-- wire Model -->
+      <a-image src="#my-image" position="-3 0 0.1" scale="2.5 2.5 2.5" rotation="270 0 0"></a-image>
+      <a-image src="#detail-wire1" position="0 0 0" scale="2.5 2.5 2.5" rotation="270 0 0"></a-image>
+        </a-entity>
+      </a-plane>
+
+    </a-marker>
+  </a-scene>
+
+  
+
+</body>
+
+</html>
